@@ -3,9 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jawad Obeidat | Portfolio</title>
+<meta name="description" content="Academic Portfolio of Jawad Obeidat | Aspiring Computer Engineer, Jordanian High School Student specializing in Cybersecurity, AI, and Cloud Computing.">
+<meta name="author" content="Jawad Obeidat">
+<title>Jawad Obeidat | Academic Portfolio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 :root{
@@ -24,6 +26,7 @@ font-family:'Cairo',sans-serif;
 background:var(--beige);
 color:var(--text);
 scroll-behavior:smooth;
+line-height:1.6;
 }
 
 /* HERO */
@@ -48,11 +51,21 @@ font-size:44px;
 margin:0 0 10px;
 letter-spacing:.5px;
 animation:fadeDown .9s ease both;
+font-weight:800;
 }
-header p{
-opacity:.92;
-margin:0 0 24px;
+header .subtitle{
+font-size:20px;
+opacity:.95;
+margin:0 0 8px;
 animation:fadeUp 1s ease both;
+font-weight:600;
+}
+header .meta-info{
+font-size:16px;
+opacity:.85;
+margin:0 0 24px;
+animation:fadeUp 1.1s ease both;
+font-weight:400;
 }
 
 /* Buttons */
@@ -92,7 +105,16 @@ transition:.6s;
 
 h2{
 color:var(--wine-dark);
-margin:0 0 10px;
+margin:0 0 16px;
+font-size:24px;
+border-bottom:2px solid var(--beige-soft);
+padding-bottom:8px;
+}
+
+h3{
+color:var(--wine-dark);
+margin:0 0 8px;
+font-size:18px;
 }
 
 /* About (image + text) */
@@ -103,32 +125,49 @@ gap:30px;
 flex-wrap:wrap;
 }
 .profile-img{
-width:220px;height:220px;
+width:220px;
+height:220px;
 border-radius:20px;
 object-fit:cover;
 box-shadow:0 12px 28px rgba(0,0,0,.25);
 transition:.35s;
 }
 .profile-img:hover{ transform:scale(1.05) rotate(.5deg); }
-.about-text{ flex:1; }
+.about-text{ flex:1; min-width:280px; }
+.about-text p{ margin:0 0 12px; }
 
-/* Projects */
+/* General Grids & Info Cards */
 .grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 gap:20px;
 }
-.card{
+.info-card{
 background:var(--beige-soft);
 padding:20px;
+border-radius:14px;
+border-left:4px solid var(--wine);
+}
+.info-card p{
+margin:4px 0;
+font-size:15px;
+}
+
+/* Projects */
+.card{
+background:var(--beige-soft);
+padding:22px;
 border-radius:15px;
 transition:.35s;
 position:relative;
 overflow:hidden;
+display:flex;
+flex-direction:column;
+justify-content:space-between;
 }
 .card:hover{
-transform:translateY(-10px);
-box-shadow:0 20px 30px rgba(0,0,0,.25);
+transform:translateY(-8px);
+box-shadow:0 20px 30px rgba(0,0,0,.18);
 }
 .card::before{
 content:'';
@@ -138,6 +177,19 @@ background:linear-gradient(120deg,transparent,rgba(255,255,255,.45),transparent)
 transition:.6s;
 }
 .card:hover::before{ transform:translateX(110%); }
+.card-content{
+margin-bottom:12px;
+}
+.project-meta{
+margin:8px 0;
+font-size:14px;
+}
+.project-meta p{
+margin:6px 0;
+}
+.project-meta strong{
+color:var(--wine-dark);
+}
 .card a{
 display:inline-block;
 margin-top:12px;
@@ -146,55 +198,89 @@ font-weight:700;
 text-decoration:none;
 }
 
-/* Counters */
+/* Key Highlights / Stats */
 .stats{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-gap:16px;
-margin-top:10px;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+margin-top:20px;
 }
 .stat{
-background:var(--beige-soft);
-border-radius:14px;
-padding:18px;
+background:linear-gradient(135deg,#f5f0e6,#e8dfd3);
+padding:25px;
+border-radius:16px;
 text-align:center;
+transition:0.4s;
+position:relative;
+overflow:hidden;
+}
+.stat:hover{
+transform:translateY(-8px) scale(1.02);
+box-shadow:0 20px 30px rgba(0,0,0,0.15);
+}
+.stat::before{
+content:'';
+position:absolute;
+top:0;
+left:-100%;
+width:100%;
+height:100%;
+background:linear-gradient(120deg,transparent,rgba(255,255,255,0.4),transparent);
+transition:0.6s;
+}
+.stat:hover::before{ left:100%; }
+.icon{ font-size:28px; margin-bottom:8px; }
+.num{ font-size:36px; font-weight:bold; color:var(--wine-dark); }
+.stat p{ margin-top:8px; font-weight:600; margin-bottom:0; }
+
+.highlight-text{
+margin-top:20px;
+background:#f3e9dc;
+padding:15px;
+border-radius:10px;
+text-align:center;
+font-weight:600;
+color:var(--wine-dark);
+}
+
+/* Badges (Interests, Skills, Languages) */
+.badge-container{
+display:flex;
+flex-wrap:wrap;
+gap:8px;
+margin-top:8px;
+}
+.badge{
+display:inline-block;
+background:var(--wine);
+color:#fff;
+padding:8px 14px;
+border-radius:8px;
+font-size:14px;
+font-weight:600;
+}
+.badge-soft{
+background:var(--beige-soft);
+color:var(--wine-dark);
+border:1px solid var(--wine);
+}
+
+.sub-title{
+font-size:16px;
 font-weight:700;
-}
-.stat .num{ font-size:28px; color:var(--wine-dark); }
-
-/* Skills */
-.skills span{
-display:inline-block;
-background:var(--wine);
-color:#fff;
-padding:8px 14px;
-margin:6px;
-border-radius:8px;
-font-size:14px;
+color:var(--wine-dark);
+margin:16px 0 8px;
 }
 
-  /* Hobbies */
-.Hobbies span{
-display:inline-block;
-background:var(--wine);
-color:#fff;
-padding:8px 14px;
-margin:6px;
-border-radius:8px;
-font-size:14px;
+/* Lists */
+.styled-list{
+padding-left:20px;
+margin:8px 0;
+}
+.styled-list li{
+margin-bottom:10px;
 }
 
-/* languages */
-.languages span{
-display:inline-block;
-background:var(--wine);
-color:#fff;
-padding:8px 14px;
-margin:6px;
-border-radius:8px;
-font-size:14px;
-}
-  
 /* Contact */
 .contact a{
 display:flex;
@@ -211,7 +297,7 @@ font-weight:700;
 transition:.25s;
 }
 .contact a:hover{ transform:translateX(4px); }
-.small{ font-size:13px; opacity:.8; }
+.small{ font-size:13px; opacity:.85; font-weight:normal; }
 
 /* Footer */
 footer{
@@ -219,7 +305,8 @@ text-align:center;
 padding:22px;
 background:var(--wine-dark);
 color:#fff;
-margin-top:10px;
+margin-top:20px;
+font-size:14px;
 }
 
 /* Animations */
@@ -235,72 +322,10 @@ to{opacity:1;transform:translateY(0);}
 /* Responsive */
 @media (max-width:600px){
 header h1{font-size:34px}
-.profile-img{width:180px;height:180px}
-}
-
-/* ===== Key Highlights Upgrade ===== */
-
-.stats{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
-margin-top:20px;
-}
-
-.stat{
-background:linear-gradient(135deg,#f5f0e6,#e8dfd3);
-padding:25px;
-border-radius:16px;
-text-align:center;
-transition:0.4s;
-position:relative;
-overflow:hidden;
-}
-
-.stat:hover{
-transform:translateY(-10px) scale(1.03);
-box-shadow:0 20px 40px rgba(0,0,0,0.2);
-}
-
-/* light sweep effect */
-.stat::before{
-content:'';
-position:absolute;
-top:0;
-left:-100%;
-width:100%;
-height:100%;
-background:linear-gradient(120deg,transparent,rgba(255,255,255,0.4),transparent);
-transition:0.6s;
-}
-
-.stat:hover::before{
-left:100%;
-}
-
-.icon{
-font-size:28px;
-margin-bottom:10px;
-}
-
-.num{
-font-size:36px;
-font-weight:bold;
-color:#6b1f2a;
-}
-
-.stat p{
-margin-top:8px;
-font-weight:600;
-}
-
-.highlight-text{
-margin-top:20px;
-background:#f3e9dc;
-padding:15px;
-border-radius:10px;
-text-align:center;
-font-weight:500;
+header .subtitle{font-size:17px}
+.profile-img{width:180px;height:180px;margin:0 auto}
+.about-flex{justify-content:center}
+.section{padding:20px}
 }
 </style>
 </head>
@@ -308,150 +333,219 @@ font-weight:500;
 <body>
 
 <header>
-  <h1>👋 Jawad Obeidat</h1>
-  <p>High School Student | Technology & Cybersecurity Enthusiast</p>
+  <h1>Jawad Obeidat</h1>
+  <p class="subtitle">Aspiring Computer Engineer | Cybersecurity, AI & Cloud Computing Enthusiast</p>
+  <p class="meta-info">Jordanian High School Student | Expected Graduation: Summer 2027</p>
 
-  <a href="https://github.com/jawad-obeidat" target="_blank" class="btn">💻 GitHub</a>
-  <a href="https://www.linkedin.com/in/j-obeidat/" target="_blank" class="btn">🔗 LinkedIn</a>
-  <a href="mailto:jawad.m.obeidat@gmail.com" class="btn">📧 Email</a>
+  <div class="header-buttons">
+    <a href="https://drive.google.com/file/d/1wR7Eup_wVfJ9k2RfKDPt18J0rb5ThDQ7/view?usp=sharing" class="btn">📄 Download CV</a>
+    <a href="https://github.com/jawad-obeidat" target="_blank" rel="noopener" class="btn">💻 GitHub</a>
+    <a href="https://www.linkedin.com/in/j-obeidat/" target="_blank" rel="noopener" class="btn">🔗 LinkedIn</a>
+    <a href="mailto:jawad.m.obeidat@gmail.com" class="btn">📧 Email</a>
+  </div>
 </header>
 
-<div class="container">
+<main class="container">
 
-  <!-- About -->
-  <div class="section">
+  <!-- About Me -->
+  <section class="section">
     <h2>💡 About Me</h2>
     <div class="about-flex">
-      <img src="img/me.jpg.jpeg" alt="Jawad" class="profile-img">
+      <img src="img/me.jpg.jpeg" alt="Jawad Obeidat Profile Picture" class="profile-img">
       <div class="about-text">
         <p>
-          I am a motivated high school student from Jordan passionate about technology and cybersecurity.
-          I build real-world solutions that create measurable impact and improve how people use technology.
-        </p>
-          I focus on practical problem-solving, user experience, and continuous learning through building projects.
+          I am a secondary school student from Irbid, Jordan, driven by a deep technical curiosity and a desire to understand how systems operate under the hood. My approach to technology is rooted in an engineering mindset: breaking down complex problems, building functional software solutions, and continuously expanding my technical knowledge through disciplined self-study.
         </p>
         <p>
-        "I am always looking for new challenges and collaborative projects. Let’s build something impactful together!"
+          Rather than learning technology in isolation, I focus on constructing real-world digital tools that address practical community needs. From analyzing security fundamentals to developing structured web systems, my objective is to establish a rigorous academic foundation in Computer Engineering, with long-term aspirations of contributing to secure, scalable, and resilient technological infrastructure.
+        </p>
       </div>
     </div>
-  </div>
+  </section>
+
+  <!-- Education -->
+  <section class="section">
+    <h2>🎓 Education</h2>
+    <div class="info-card">
+      <h3>Jordanian Tawjihi Program</h3>
+      <p><strong>Country:</strong> Jordan</p>
+      <p><strong>Expected Graduation:</strong> Summer 2027</p>
+      <p><strong>Intended Major:</strong> Bachelor of Computer Engineering</p>
+    </div>
+  </section>
+
+  <!-- Academic Interests -->
+  <section class="section">
+    <h2>🔬 Academic Interests</h2>
+    <div class="badge-container">
+      <span class="badge">Computer Engineering</span>
+      <span class="badge">Cybersecurity</span>
+      <span class="badge">Artificial Intelligence</span>
+      <span class="badge">Cloud Computing</span>
+      <span class="badge">Software Engineering</span>
+      <span class="badge">Digital Transformation</span>
+      <span class="badge">Technology for Social Impact</span>
+    </div>
+  </section>
 
   <!-- Projects -->
-  <div class="section">
+  <section class="section">
     <h2>🚀 Projects</h2>
     <div class="grid">
 
-      <div class="card">
-        <h3>🎯 Tawjihi Smart Platform</h3>
-        <p>Platform explaining the new system with calculators, guidance, and structured content.</p>
-        <a href="https://jawad-obeidat.github.io/tawjihi-smart-platform/" target="_blank">View Project →</a>
-      </div>
+      <article class="card">
+        <div class="card-content">
+          <h3>🎯 Tawjihi Smart Platform</h3>
+          <div class="project-meta">
+            <p><strong>Purpose:</strong> Assist Jordanian high school students in understanding and navigating academic track options and grading system updates.</p>
+            <p><strong>Problem:</strong> Students and parents faced ambiguity due to structural adjustments in the national curriculum requirements.</p>
+            <p><strong>Solution:</strong> Developed a centralized guidance portal featuring automated score calculation tools and structured academic information.</p>
+            <p><strong>Technical Approach:</strong> Engineered modular client-side logic for score calculations paired with a responsive interface.</p>
+            <p><strong>Skills Used:</strong> HTML5, CSS3, JavaScript, Algorithmic Thinking, UI/UX Structure.</p>
+            <p><strong>Lessons Learned:</strong> Translating administrative rules into precise code logic requires rigorous handling of edge cases and clear user feedback.</p>
+          </div>
+        </div>
+        <a href="https://jawad-obeidat.github.io/tawjihi-smart-platform/" target="_blank" rel="noopener">View Project →</a>
+      </article>
 
-      <div class="card">
-        <h3>🦷 Clinic Digital Transformation</h3>
-        <p>Turned a local clinic into a digital business using web presence, maps, and QR tools.</p>
-        <a href="https://jawad-obeidat.github.io/local-business-digital-transformation/" target="_blank">View Project →</a>
-      </div>
+      <article class="card">
+        <div class="card-content">
+          <h3>🦷 Clinic Digital Transformation</h3>
+          <div class="project-meta">
+            <p><strong>Purpose:</strong> Modernize the digital presence and accessibility of a local medical practice in Irbid.</p>
+            <p><strong>Problem:</strong> The clinic lacked a structured digital footprint, making location details and operational info difficult for patients to access online.</p>
+
+            <p><strong>Solution:</strong> Built a lightweight business website integrated with geolocation tools and quick-access QR navigation.</p>
+            <p><strong>Technical Approach:</strong> Optimized assets for mobile loading speed, configured local search profiles, and implemented clean information architecture.</p>
+            <p><strong>Skills Used:</strong> Web Development, Local SEO Integration, Layout Optimization, Digital Strategy.</p>
+            <p><strong>Lessons Learned:</strong> Effective technology solutions prioritize speed, clarity, and direct utility over decorative complexity.</p>
+          </div>
+        </div>
+        <a href="https://jawad-obeidat.github.io/local-business-digital-transformation/" target="_blank" rel="noopener">View Project →</a>
+      </article>
 
     </div>
-  </div>
+  </section>
 
-  <div class="section">
-<div class="section">
-<h2>🚀 Key Highlights</h2>
+  <!-- Achievements & Awards -->
+  <section class="section">
+    <h2>🏆 Achievements & Awards</h2>
+    <ul class="styled-list">
+      <li>
+        <strong>Gold Level Award — Constructor Spring Challenge 2026:</strong> Earned top distinction in logical reasoning, mathematical problem solving, and computer science evaluations.
+      </li>
+      <li>
+        <strong>Harvard CS50x (CS50: Introduction to Computer Science):</strong> <em>Currently in Progress – Expected Completion: August 2026.</em> Actively completing problem sets focused on memory management, data structures, algorithms, and web development fundamentals.
+      </li>
+    </ul>
+  </section>
 
-<div class="stats">
+  <!-- Key Highlights -->
+  <section class="section">
+    <h2>🚀 Key Highlights</h2>
+    <div class="stats">
 
-  <div class="stat">
-    <div class="icon">📂</div>
-    <div class="num" data-target="2">0</div>
-    <p>Projects Built</p>
-  </div>
+      <div class="stat">
+        <div class="icon">📂</div>
+        <div class="num" data-target="2">0</div>
+        <p>Real-World Projects</p>
+      </div>
 
-  <div class="stat">
-    <div class="icon">🎯</div>
-    <div class="num" data-target="100">0</div>
-    <p>Real-World Focus</p>
-  </div>
+      <div class="stat">
+        <div class="icon">💼</div>
+        <div class="num" data-target="1">0</div>
+        <p>Digital Transformation Project</p>
+      </div>
 
-  <div class="stat">
-    <div class="icon">💼</div>
-    <div class="num" data-target="1">0</div>
-    <p>Business Impact Project</p>
-  </div>
+      <div class="stat">
+        <div class="icon">📚</div>
+        <div class="num" data-target="1">0</div>
+        <p>free students help project</p>
+      </div>
 
-</div>
+   
+    </div>
 
-<p class="highlight-text">
-I focus on building practical, real-world solutions that create measurable impact and solve real problems.
-</p>
-
-</div>
+    <p class="highlight-text">
+      Applying engineering principles to real-world challenges through continuous self-study and functional project building.
+    </p>
+  </section>
 
   <!-- Experience -->
-  <div class="section">
-    <h2>💼 Experience</h2>
-    <ul>
-      <li>Identified real problems and built working solutions</li>
-      <li>Improved business visibility using digital tools</li>
-      <li>Applied user-focused thinking in real scenarios</li>
+  <section class="section">
+    <h2>💼 Practical Experience</h2>
+    <ul class="styled-list">
+      <li>
+        <strong>Independent Project Developer:</strong> Identified real-life technical friction points within the local community and engineered functional web tools to resolve them.
+      </li>
+      <li>
+        <strong>Digital Systems Setup:</strong> Assisted local services in establishing digital presence, search visibility, and streamlined customer communication channels.
+      </li>
+      <li>
+        <strong>Self-Directed Technical Training:</strong> Consistently practiced problem-solving on competitive coding and web security platforms to strengthen technical foundations.
+      </li>
     </ul>
-  </div>
+  </section>
 
-   <!-- Skills -->
-  <div class="section">
+  <!-- Skills -->
+  <section class="section">
     <h2>🧠 Skills</h2>
-    <div class="skills">
-      <span>Self-Learning</span>
-      <span>HTML</span>
-      <span>CSS</span>
-      <span>JavaScript</span>
-      <span>Problem Solving</span>
-      <span>Ability to work independently and collaboratively</span>
-      <span>work under pressure</span>
-      <span>Intergenerational Communication</span>
-      <span>Time Management</span>
-  </div>
-  </div>
 
-    <!-- Hobbies -->
-   <div class="section">
-     <h2>🏓 Hobbies</h2>
-     <div class="Hobbies">
-      <span>Horse Riding</span>
-      <span>Swimming</span>
-      <span>Technology</span>
-      <span>Travel</span>
-      <span>Cooking</span>
-      <span>Music</span>
- </div>
-  </div>
+    <div class="sub-title">Technical Skills</div>
+    <div class="badge-container">
+      <span class="badge">HTML</span>
+      <span class="badge">CSS</span>
+      <span class="badge">JavaScript</span>
+      <span class="badge">Responsive Web Design</span>
+      <span class="badge">GitHub</span>
+      <span class="badge">Digital Transformation</span>
+    </div>
 
-    <!-- Languages -->
-   <div class="section">
-     <h2>🗣️ languages</h2>
-     <div class="languages">
-      <span>Arabic (Native) (C2)</span>
-      <span>English (Intermediate) (B2)</span>
-      <span>Turkish (A2)</span>
-      <span>Germany (Basic) (A1)</span>
- </div>
-  </div>
+    <div class="sub-title">Soft Skills</div>
+    <div class="badge-container">
+      <span class="badge badge-soft">Problem Solving</span>
+      <span class="badge badge-soft">Critical Thinking</span>
+      <span class="badge badge-soft">Communication</span>
+      <span class="badge badge-soft">Leadership</span>
+      <span class="badge badge-soft">Time Management</span>
+      <span class="badge badge-soft">Adaptability</span>
+      <span class="badge badge-soft">Self Learning</span>
+    </div>
+  </section>
+
+  <!-- Languages -->
+  <section class="section">
+    <h2>🗣️ Languages</h2>
+    <div class="badge-container">
+      <span class="badge">Arabic — Native (C2)</span>
+      <span class="badge">English — Upper-Intermediate (B2)</span>
+      <span class="badge">Turkish — Elementary (A2)</span>
+      <span class="badge">German — Beginner (A1)</span>
+    </div>
+  </section>
+
+  <!-- Future Goals -->
+  <section class="section">
+    <h2>🎯 Future Goals</h2>
+    <p>
+      My immediate academic goal is to pursue a Bachelor of Computer Engineering at a leading international university, followed by advanced specialization in Cybersecurity and Systems Engineering. I am committed to dedicating my undergraduate years to mastering core hardware-software interactions, network security protocols, and cloud architecture. Ultimately, I aim to design resilient digital systems that protect critical infrastructure and deliver scalable, positive societal impact through engineering excellence.
+    </p>
+  </section>
 
   <!-- What I Learned -->
-  <div class="section">
-    <h2>📚 What I Learned</h2>
-    <ul>
-      <li>Real-world impact matters more than theory</li>
-      <li>Simple solutions can solve big problems</li>
-      <li>Understanding users is the key to success</li>
-      <li>Consistency beats motivation</li>
-      <li>Building projects is the fastest way to learn</li>
+  <section class="section">
+    <h2>📚 Core Principles & Learnings</h2>
+    <ul class="styled-list">
+      <li><strong>Utility First:</strong> Theoretical knowledge gains its true value when translated into functional, deployed software.</li>
+      <li><strong>Architectural Simplicity:</strong> Clean, straightforward code structures reduce bugs, improve maintainability, and enhance security.</li>
+      <li><strong>User-Centered Perspective:</strong> Software must be designed around the operational realities and requirements of its intended users.</li>
+      <li><strong>Consistent Discipline:</strong> Daily, methodical self-learning compounds far more effectively than sporadic efforts.</li>
+      <li><strong>Iterative Problem Solving:</strong> Engineering progress relies on breaking complex problems into manageable sub-tasks and testing rigorously.</li>
     </ul>
-  </div>
+  </section>
 
   <!-- Contact -->
-  <div class="section">
+  <section class="section">
     <h2>📞 Contact</h2>
     <div class="contact">
       <a href="mailto:jawad.m.obeidat@gmail.com">
@@ -461,64 +555,82 @@ I focus on building practical, real-world solutions that create measurable impac
 
       <a href="tel:0779068040">
         <span>📱 Call</span>
-        <span class="small">+962779068040</span>
+        <span class="small">+962 77 906 8040</span>
       </a>
 
-      <a href="https://wa.me/962779068040" target="_blank">
+      <a href="https://wa.me/962779068040" target="_blank" rel="noopener">
         <span>💬 WhatsApp</span>
         <span class="small">Direct Message</span>
       </a>
 
-      <a href="https://github.com/jawad-obeidat" target="_blank">
+      <a href="https://github.com/jawad-obeidat" target="_blank" rel="noopener">
         <span>💻 GitHub</span>
         <span class="small">github.com/jawad-obeidat</span>
       </a>
 
-      <a href="https://www.linkedin.com/in/j-obeidat/" target="_blank">
+      <a href="https://www.linkedin.com/in/j-obeidat/" target="_blank" rel="noopener">
         <span>🔗 LinkedIn</span>
         <span class="small">View Profile</span>
       </a>
     </div>
-  </div>
+  </section>
 
-</div>
+</main>
 
 <footer>
-© 2026 Jawad Obeidat
+  © 2026 Jawad Obeidat. All Rights Reserved.
 </footer>
 
 <script>
 /* Scroll reveal */
 const sections = document.querySelectorAll('.section');
-window.addEventListener('scroll', () => {
-  sections.forEach(sec=>{
-    if(sec.getBoundingClientRect().top < window.innerHeight - 100){
+const revealSections = () => {
+  sections.forEach(sec => {
+    if(sec.getBoundingClientRect().top < window.innerHeight - 80){
       sec.classList.add('show');
     }
   });
-});
+};
+
+window.addEventListener('scroll', revealSections);
+revealSections();
 
 /* Counters */
-document.querySelectorAll('.num').forEach(el=>{
-  const target = +el.dataset.target;
-  if(!target) return; // يمنع NaN
+const counters = document.querySelectorAll('.num');
+let animated = false;
 
-  let count = 0;
-  const step = target / 60;
+const startCounters = () => {
+  counters.forEach(el => {
+    const target = +el.dataset.target;
+    if(!target && target !== 0) return;
 
-  function update(){
-    count += step;
-    if(count < target){
-      el.textContent = Math.ceil(count);
-      requestAnimationFrame(update);
-    } else {
-      el.textContent = target;
+    let count = 0;
+    const step = Math.max(1, Math.ceil(target / 40));
+
+    function update(){
+      count += step;
+      if(count < target){
+        el.textContent = count;
+        requestAnimationFrame(update);
+      } else {
+        el.textContent = target;
+      }
+    }
+    update();
+  });
+};
+
+/* Trigger counter animation when stats section is visible */
+window.addEventListener('scroll', () => {
+  const statsSec = document.querySelector('.stats');
+  if(statsSec && !animated){
+    if(statsSec.getBoundingClientRect().top < window.innerHeight - 50){
+      startCounters();
+      animated = true;
     }
   }
-
-  update();
 });
 </script>
 
 </body>
-</html>
+</html>  a  Q13
